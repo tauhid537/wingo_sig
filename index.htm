@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DarK Tauhid B4ck</title>
+<style>
+body{margin:0;font-family:Arial;background:#f0f4f7;overflow:hidden;}
+#miniPanel{
+  position:absolute;top:150px;left:50px;width:280px; 
+  background:linear-gradient(135deg,#212121,#424242);
+  color:#fff;border-radius:12px;padding:12px;
+  cursor:move;box-shadow:0 6px 16px rgba(0,0,0,0.35);z-index:1000;font-size:14px;
+}
+#miniPanel h3{text-align:center;color:#00e676;margin:4px 0;font-size:15px;}
+#miniPanel input{width:80%;padding:6px;margin:5px 0;border-radius:6px;border:none;outline:none;font-size:14px;}
+#miniPanel button{padding:6px 10px;margin:5px 0;border:none;border-radius:6px;background:#ff5252;color:#fff;cursor:pointer;}
+#miniPanel button:hover{background:#ff1744;}
+#content{display:none;text-align:center;margin-top:8px;}
+#result{font-size:32px;font-weight:bold;margin:10px 0;color:#ff1744;}
+#telegram a{background:#0088cc;color:#fff;padding:6px 10px;border-radius:8px;text-decoration:none;display:inline-block;font-size:14px;}
+#telegram a:hover{background:#005f99;}
+#bigSite{position:fixed;top:0;left:0;width:100%;height:100%;border:none;z-index:1;}
+</style>
+</head>
+<body><div id="miniPanel">
+<h3>DarK Tauhid B4ck</h3>
+<input type="password" id="passInput" placeholder="Enter Password" autofocus>
+<br>
+<button id="unlockBtn">Unlock</button><div id="content">
+<p>Timer: <span id="timer">28</span>s</p>
+<p id="result"></p>
+<div id="telegram">
+<a href="https://t.me/+jGEZc29tPt05YThl" target="_blank">JOIN TELEGRAM</a>
+</div>
+</div>
+</div><iframe src="https://hgnice0.com/#/register?invitationCode=784741846314" id="bigSite"></iframe><script>
+const passInput=document.getElementById("passInput");
+const unlockBtn=document.getElementById("unlockBtn");
+
+unlockBtn.addEventListener("click",unlockPanel);
+passInput.addEventListener("keypress", function(e){
+  if(e.key==='Enter') unlockPanel();
+});
+
+function unlockPanel(){
+  if(passInput.value==="7788"){
+    document.getElementById("content").style.display="block";
+    passInput.style.display="none";
+    unlockBtn.style.display="none";
+    startTimer();
+  } else {
+    alert("Wrong Password!");
+    passInput.value = "";
+    passInput.focus();
+  }
+}
+
+function startTimer(){
+  const timerSpan=document.getElementById("timer");
+  const result=document.getElementById("result");
+
+  let sec=28;
+  let showBig=true;
+
+  function updateResult(){
+    result.innerText = showBig ? "BIG" : "SMALL";
+    showBig = !showBig;
+  }
+
+  updateResult();
+  timerSpan.innerText = sec;
+
+  setInterval(()=>{
+    sec--;
+    if(sec <=0){
+      sec=28;
+      updateResult();
+    }
+    timerSpan.innerText=sec;
+  },1000);
+}
+
+// Drag panel
+ dragElement(document.getElementById("miniPanel"));
+function dragElement(elmnt){
+  let pos1=0,pos2=0,pos3=0,pos4=0;
+  elmnt.onmousedown = dragMouseDown;
+
+  function dragMouseDown(e){
+    e = e || window.event;
+    e.preventDefault();
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e){
+    e = e || window.event;
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    let newTop = elmnt.offsetTop - pos2;
+    let newLeft = elmnt.offsetLeft - pos1;
+    newTop = Math.max(0, Math.min(window.innerHeight - elmnt.offsetHeight, newTop));
+    newLeft = Math.max(0, Math.min(window.innerWidth - elmnt.offsetWidth, newLeft));
+    elmnt.style.top = newTop + "px";
+    elmnt.style.left = newLeft + "px";
+  }
+
+  function closeDragElement(){
+    document.onmouseup=null;
+    document.onmousemove=null;
+  }
+}
+</script></body>
+</html>
